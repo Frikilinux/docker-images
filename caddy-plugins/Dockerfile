@@ -1,6 +1,7 @@
-FROM caddy:builder AS builder
-
 ARG CADDY_VERSION=2.10.2
+ARG PLUGINS_VERSION=2
+
+FROM caddy:builder AS builder
 
 RUN xcaddy build v${CADDY_VERSION} \
     --with github.com/mholt/caddy-l4@2e3e6cf \
@@ -8,8 +9,8 @@ RUN xcaddy build v${CADDY_VERSION} \
 
 FROM alpine:3.22.2
 
-ARG CADDY_VERSION=2.10.2
-ARG PLUGINS_VERSION=2
+ARG CADDY_VERSION
+ARG PLUGINS_VERSION
 
 LABEL org.opencontainers.image.version=${CADDY_VERSION}-plugins.${PLUGINS_VERSION}
 LABEL org.opencontainers.image.title=Caddy-plugins
@@ -24,19 +25,19 @@ RUN apk add --no-cache ca-certificates libcap mailcap
 
 RUN set -eux; \
     mkdir -p \
-		/config/caddy \
-		/data/caddy \
-		/etc/caddy \
-		/usr/share/caddy \
-		; \
-	wget -O /etc/caddy/Caddyfile "https://github.com/caddyserver/dist/raw/v${CADDY_VERSION}/config/Caddyfile"; \
-	wget -O /usr/share/caddy/index.html "https://github.com/caddyserver/dist/raw/v${CADDY_VERSION}/welcome/index.html"
+      /config/caddy \
+      /data/caddy \
+      /etc/caddy \
+      /usr/share/caddy; \
+		wget -O /etc/caddy/Caddyfile "https://github.com/caddyserver/dist/raw/v${CADDY_VERSION}/config/Caddyfile"; \
+		wget -O /usr/share/caddy/index.html "https://github.com/caddyserver/dist/raw/v${CADDY_VERSION}/welcome/index.html"
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
+
 RUN set -eux; \
     setcap cap_net_bind_service=+ep /usr/bin/caddy; \
-	chmod +x /usr/bin/caddy; \
-	caddy version
+    chmod +x /usr/bin/caddy; \
+    caddy version
 
 ENV XDG_CONFIG_HOME=/config
 ENV XDG_DATA_HOME=/data
