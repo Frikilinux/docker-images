@@ -3,6 +3,8 @@ ARG PLUGINS_VERSION=2
 
 FROM caddy:builder AS builder
 
+ARG CADDY_VERSION
+
 RUN xcaddy build v${CADDY_VERSION} \
     --with github.com/mholt/caddy-l4@2e3e6cf \
     --with github.com/caddy-dns/cloudflare@2fc25ee
@@ -41,6 +43,7 @@ RUN set -eux; \
 
 ENV XDG_CONFIG_HOME=/config
 ENV XDG_DATA_HOME=/data
+ENV CADDY_VERSION=v${CADDY_VERSION}
 
 EXPOSE 80
 EXPOSE 443
