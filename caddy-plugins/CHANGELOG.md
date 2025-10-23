@@ -1,5 +1,11 @@
 # Changelog for caddy-plugins Docker images
 
+## [2.10.2-plugins.2] - 2025-10-22
+
+### Changed
+- Update [Cloudflare DNS](https://github.com/caddy-dns/cloudflare) tag `v0.2.2` [↗](https://github.com/caddy-dns/cloudflare/tree/2fc25ee62f40fe21b240f83ab2fb6e2be6dbb953)
+- Refactor Dockerfile to use multi-stage builds
+
 ## [2.10.2-plugins.1] - 2025-10-19
 
 ### Added
