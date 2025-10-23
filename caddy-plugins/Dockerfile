@@ -1,6 +1,6 @@
 FROM caddy:builder AS builder
 
-ENV CADDY_VERSION=2.10.2
+ARG CADDY_VERSION=2.10.2
 
 RUN xcaddy build v${CADDY_VERSION} \
     --with github.com/mholt/caddy-l4@2e3e6cf \
@@ -8,8 +8,8 @@ RUN xcaddy build v${CADDY_VERSION} \
 
 FROM alpine:3.22.2
 
-ENV CADDY_VERSION=2.10.2
-ENV PLUGINS_VERSION=2
+ARG CADDY_VERSION=2.10.2
+ARG PLUGINS_VERSION=2
 
 LABEL org.opencontainers.image.version=${CADDY_VERSION}-plugins.${PLUGINS_VERSION}
 LABEL org.opencontainers.image.title=Caddy-plugins
@@ -36,9 +36,7 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 RUN set -eux; \
     setcap cap_net_bind_service=+ep /usr/bin/caddy; \
 	chmod +x /usr/bin/caddy; \
-	caddy version; \
-    unset CADDY_VERSION \
-        PLUGINS_VERSION
+	caddy version
 
 ENV XDG_CONFIG_HOME=/config
 ENV XDG_DATA_HOME=/data
