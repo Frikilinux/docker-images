@@ -12,7 +12,7 @@ RUN xcaddy build v${CADDY_VERSION} \
   --with github.com/mholt/caddy-l4@2e3e6cf60b25186d29e3b07e269563f870b36c96 \
   --with github.com/caddy-dns/cloudflare@2fc25ee62f40fe21b240f83ab2fb6e2be6dbb953
 
-FROM alpine:3.22.2
+FROM alpine:3.22
 
 ARG CADDY_VERSION
 ARG PLUGINS_VERSION
@@ -40,7 +40,6 @@ COPY --from=builder /dist/config/Caddyfile /etc/caddy/Caddyfile
 COPY --from=builder /dist/welcome/index.html /usr/share/caddy/index.html
 
 RUN set -eux; \
-  setcap cap_net_bind_service=+ep /usr/bin/caddy; \
   chmod +x /usr/bin/caddy; \
   caddy version
 
