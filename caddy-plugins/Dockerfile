@@ -1,18 +1,18 @@
-ARG CADDY_VERSION=2.10.2
-ARG PLUGINS_VERSION=2
+ARG CADDY_VERSION=2.11.0-beta.1
+ARG PLUGINS_VERSION=2.1
 
 FROM caddy:builder AS builder
 
 ARG CADDY_VERSION
 
 # Fetch default configuration and welcome files
-RUN git clone --depth 1 --branch v${CADDY_VERSION} https://github.com/caddyserver/dist.git /dist
+# RUN git clone --depth 1 --branch v${CADDY_VERSION} https://github.com/caddyserver/dist.git /dist
 
 RUN xcaddy build v${CADDY_VERSION} \
-  --with github.com/mholt/caddy-l4@2e3e6cf60b25186d29e3b07e269563f870b36c96 \
+  --with github.com/mholt/caddy-l4@1a3490ef786a8fd93128d55aed1999930b7c0586 \
   --with github.com/caddy-dns/cloudflare@2fc25ee62f40fe21b240f83ab2fb6e2be6dbb953
 
-FROM alpine:3.22
+FROM alpine:3.23
 
 ARG CADDY_VERSION
 ARG PLUGINS_VERSION
@@ -33,11 +33,13 @@ RUN set -eux; \
   /config/caddy \
   /data/caddy \
   /etc/caddy \
-  /usr/share/caddy
+  /usr/share/caddy; \
+  wget -O /etc/caddy/Caddyfile "https://github.com/caddyserver/dist/raw/refs/heads/master/config/Caddyfile"; \
+	wget -O /usr/share/caddy/index.html "https://github.com/caddyserver/dist/raw/refs/heads/master/welcome/index.html"
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
-COPY --from=builder /dist/config/Caddyfile /etc/caddy/Caddyfile
-COPY --from=builder /dist/welcome/index.html /usr/share/caddy/index.html
+# COPY --from=builder /dist/config/Caddyfile /etc/caddy/Caddyfile
+# COPY --from=builder /dist/welcome/index.html /usr/share/caddy/index.html
 
 RUN set -eux; \
   chmod +x /usr/bin/caddy; \

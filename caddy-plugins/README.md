@@ -25,7 +25,7 @@ Designed for advanced environments, secure proxies, and automated deployments.
 | Plugin | Description | Repository | Commit |
 |--------|-------------|------------|--------|
 | `tls.dns.cloudflare` | Enables DNS-01 authentication with Cloudflare's API | [caddy-dns/cloudflare](https://github.com/caddy-dns/cloudflare) | [2fc25ee](https://github.com/caddy-dns/cloudflare/tree/2fc25ee62f40fe21b240f83ab2fb6e2be6dbb953) |
-| `layer4` | Adds TCP/UDP proxying and advanced connection routing | [mholt/caddy-l4](https://github.com/mholt/caddy-l4) | [2e3e6cf](https://github.com/mholt/caddy-l4/tree/2e3e6cf60b25186d29e3b07e269563f870b36c96) |
+| `layer4` | Adds TCP/UDP proxying and advanced connection routing | [mholt/caddy-l4](https://github.com/mholt/caddy-l4) | [1a3490e](https://github.com/mholt/caddy-l4/tree/1a3490ef786a8fd93128d55aed1999930b7c0586) |
 
 ---
 
