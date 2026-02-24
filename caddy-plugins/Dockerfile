@@ -1,5 +1,5 @@
-ARG CADDY_VERSION=2.11.0-beta.2
-ARG PLUGINS_VERSION=2.2
+ARG CADDY_VERSION=2.11.1
+ARG PLUGINS_VERSION=2.1
 ARG L4_PLUGIN_COMMIT=5b50eb6ed84c74cd3d4b15f854b93b8b6d71424c
 ARG CLOUDFLARE_PLUGIN_COMMIT=6dc1fbb7e925b0da6736780db2e90f4816b79ab7
 ARG CADDY_DIST_BASE="https://github.com/caddyserver/dist/raw/refs/tags/v${CADDY_VERSION}"
@@ -23,7 +23,7 @@ ARG CADDY_VERSION
 ARG PLUGINS_VERSION
 ARG CADDY_DIST_BASE
 
-LABEL org.opencontainers.image.version=${CADDY_VERSION}-plugins.${PLUGINS_VERSION}
+LABEL org.opencontainers.image.version=${CADDY_VERSION}-plugins${PLUGINS_VERSION}
 LABEL org.opencontainers.image.title=Caddy-plugins
 LABEL org.opencontainers.image.description="Custom Caddy server with plugins"
 LABEL org.opencontainers.image.url="https://github.com/Frikilinux/docker-images/tree/main/caddy-plugins"
@@ -44,8 +44,6 @@ RUN set -eux; \
   wget -q -O /usr/share/caddy/index.html "${CADDY_DIST_BASE}/welcome/index.html"
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
-# COPY --from=builder /dist/config/Caddyfile /etc/caddy/Caddyfile
-# COPY --from=builder /dist/welcome/index.html /usr/share/caddy/index.html
 
 RUN set -eux; \
   chmod +x /usr/bin/caddy; \
