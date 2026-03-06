@@ -1,4 +1,4 @@
-ARG CADDY_VERSION=2.11.1
+ARG CADDY_VERSION=2.11.2
 ARG PLUGINS_VERSION=2.1
 ARG L4_PLUGIN_COMMIT=5b50eb6ed84c74cd3d4b15f854b93b8b6d71424c
 ARG CLOUDFLARE_PLUGIN_COMMIT=6dc1fbb7e925b0da6736780db2e90f4816b79ab7
@@ -9,9 +9,6 @@ FROM caddy:builder AS builder
 ARG CADDY_VERSION
 ARG L4_PLUGIN_COMMIT
 ARG CLOUDFLARE_PLUGIN_COMMIT
-
-# Fetch default configuration and welcome files
-# RUN git clone --depth 1 --branch v${CADDY_VERSION} https://github.com/caddyserver/dist.git /dist
 
 RUN xcaddy build v${CADDY_VERSION} \
   --with github.com/mholt/caddy-l4@${L4_PLUGIN_COMMIT} \

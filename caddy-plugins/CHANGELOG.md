@@ -1,5 +1,11 @@
 # Changelog for caddy-plugins Docker images
 
+## [2.11.1-plugins2.1] - 2026-03-06
+
+### Changed
+
+- Update [Caddy](https://github.com/caddyserver/caddy) tag `v2.11.2` [↗](https://github.com/caddyserver/caddy/tree/v2.11.2)
+
 ## [2.11.1-plugins2.1] - 2026-02-23
 
 ### Changed
