@@ -1,5 +1,14 @@
 # Changelog for caddy-plugins Docker images
 
+## [2.11.3-plugins2.2] - 2026-06-12
+
+### Changed
+
+- Update [Caddy](https://github.com/caddyserver/caddy) tag `v2.11.3` [↗](https://github.com/caddyserver/caddy/tree/v2.11.3)
+- Update [Cloudflare DNS](https://github.com/caddy-dns/cloudflare) commit `a8737d095ad5a48ca031cea6ab704057dbc2d250` [↗](https://github.com/caddy-dns/cloudflare/tree/a8737d095ad5a48ca031cea6ab704057dbc2d250)
+- Update [layer4](https://github.com/mholt/caddy-l4) commit `77920167a64129aba399e07e9e3c1194e461ab09` [↗](https://github.com/mholt/caddy-l4/tree/77920167a64129aba399e07e9e3c1194e461ab09)
+- Update base image to Alpine 3.23.4
+
 ## [2.11.1-plugins2.1] - 2026-03-06
 
 ### Changed
