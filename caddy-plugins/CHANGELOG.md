@@ -1,6 +1,15 @@
 # Changelog for caddy-plugins Docker images
 
-## [2.11.3-plugins2.2] - 2026-06-12
+## [2.11.4-plugins2.3] - 2026-07-10
+
+### Changed
+
+- Update [Caddy](https://github.com/caddyserver/caddy) tag `v2.11.4` [↗](https://github.com/caddyserver/caddy/tree/v2.11.4)
+- Update [layer4](https://github.com/mholt/caddy-l4) commit `1d459d3c0a3232499a5f2b6122c4e90786d93a11` [↗](https://github.com/mholt/caddy-l4/commit/1d459d3c0a3232499a5f2b6122c4e90786d93a11)
+- Update base image to Alpine 3.24.0
+
+
+## [2.11.3-plugins2.2] - 2026-05-12
 
 ### Changed
 
