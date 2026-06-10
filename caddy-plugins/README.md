@@ -18,14 +18,14 @@ Designed for advanced environments, secure proxies, and automated deployments.
 ---
 
 ## Supported tags and respective `Dockerfile` links
-- [`2.11.3-plugins2.2`, `2.11.3-plugins`, `2.11-plugins`, `latest`](https://github.com/Frikilinux/docker-images/blob/main/caddy-plugins/Dockerfile)
+- [`2.11.4-plugins2.3`, `2.11.4-plugins`, `2.11-plugins`, `latest`](https://github.com/Frikilinux/docker-images/blob/main/caddy-plugins/Dockerfile)
 
 ## Included Plugins
 
 | Plugin | Description | Repository | Commit |
 |--------|-------------|------------|--------|
 | `tls.dns.cloudflare` | Enables DNS-01 authentication with Cloudflare's API | [caddy-dns/cloudflare](https://github.com/caddy-dns/cloudflare) | [a8737d0](https://github.com/caddy-dns/cloudflare/tree/a8737d095ad5a48ca031cea6ab704057dbc2d250) |
-| `layer4` | Adds TCP/UDP proxying and advanced connection routing | [mholt/caddy-l4](https://github.com/mholt/caddy-l4) | [7792016](https://github.com/mholt/caddy-l4/tree/77920167a64129aba399e07e9e3c1194e461ab09) |
+| `layer4` | Adds TCP/UDP proxying and advanced connection routing | [mholt/caddy-l4](https://github.com/mholt/caddy-l4) | [1d459d3](https://github.com/mholt/caddy-l4/commit/1d459d3c0a3232499a5f2b6122c4e90786d93a11) |
 
 ---
 
