@@ -14,7 +14,7 @@ RUN xcaddy build v${CADDY_VERSION} \
   --with github.com/mholt/caddy-l4@${L4_PLUGIN_COMMIT} \
   --with github.com/caddy-dns/cloudflare@${CLOUDFLARE_PLUGIN_COMMIT}
 
-FROM alpine:3.24.0
+FROM alpine:3.24.1
 
 ARG CADDY_VERSION
 ARG PLUGINS_VERSION

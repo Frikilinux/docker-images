@@ -1,6 +1,11 @@
 # Changelog for caddy-plugins Docker images
 
-## [2.11.4-plugins2.3] - 2026-07-10
+## [2.11.4.1-plugins2.3] - 2026-06-29
+
+- Update base image to Alpine 3.24.1
+
+
+## [2.11.4-plugins2.3] - 2026-06-10
 
 ### Changed
 
