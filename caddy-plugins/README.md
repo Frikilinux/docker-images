@@ -18,7 +18,7 @@ Designed for advanced environments, secure proxies, and automated deployments.
 ---
 
 ## Supported tags and respective `Dockerfile` links
-- [`2.11.4-plugins2.3`, `2.11.4-plugins`, `2.11-plugins`, `latest`](https://github.com/Frikilinux/docker-images/blob/main/caddy-plugins/Dockerfile)
+- [`2.11.4.1-plugins2.3`, `2.11.4.1-plugins`, `2.11-plugins`, `latest`](https://github.com/Frikilinux/docker-images/blob/main/caddy-plugins/Dockerfile)
 
 ## Included Plugins
 
